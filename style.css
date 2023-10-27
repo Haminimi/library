@@ -162,3 +162,74 @@
     cursor: pointer;
     font-size: 40px;
   }
+
+  #books-header {
+    font-size: 40px;
+    font-family: 'Shadows Into Light', cursive;
+  }
+
+  .card {
+    border: 2px solid black;
+    height: 300px;
+    padding: 20px;
+    border-radius: 4px;
+    display: grid;
+    grid-template-rows: 4fr 1fr;
+    transition: 0.1s;
+    font-size: 18px;
+    line-height: 35px;
+    color: var(--secondary-color);
+    border-left: 6px solid var(--theme-color);
+  }
+
+  .card-title {
+    font-size: 20px;
+    font-weight: bold;
+    overflow-wrap: break-word;
+  }
+
+  .card:hover {
+    transform: scale(1.01);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+  }
+
+  .read-div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .switch-button {
+    font-size: 40px;
+    user-select: none;
+    cursor: pointer;
+  }
+
+  .card-buttons {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    gap: 15px;
+  }
+
+  .delete-button {
+    cursor: pointer;
+    user-select: none;
+    font-size: 30px;
+  }
+
+  .favorite-button {
+    color: var(--theme-color);
+    cursor: pointer;
+    user-select: none;
+    font-size: 30px;
+  }
+  
+  .favorite-button-red {
+    color: #dc143c;
+    font-variation-settings:
+    'FILL' 1,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24
+}
