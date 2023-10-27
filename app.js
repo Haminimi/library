@@ -230,3 +230,38 @@ function displayBook(array) {
         })
     }
 })}
+
+
+clearButton.addEventListener('click', () => {
+    if (cards) {
+        while (cards.firstChild) {
+            cards.removeChild(cards.firstChild);
+        }
+    }
+    myLibrary.splice(0);
+    displayedBooks.splice(0);
+    favoriteBooks.splice(0);
+    favoriteBooksList.textContent = '';
+    const emptyLibraryCard = document.createElement('div');
+    emptyLibraryCard.classList.add('empty-library-card');
+    const emptyLibraryCardText = document.createElement('p');
+    emptyLibraryCardText.classList.add('empty-library-card-text')
+    emptyLibraryCard.appendChild(emptyLibraryCardText);
+    const emptyLibraryCardButtonDiv = document.createElement('div');
+    emptyLibraryCardButtonDiv.classList.add('empty-library-card-button-div');
+    const emptyLibraryCardButton = document.createElement('span');
+    emptyLibraryCardButton.classList.add('new-book-button', 'material-symbols-outlined');
+    emptyLibraryCardButton.textContent = 'add';
+    emptyLibraryCardButtonDiv.appendChild(emptyLibraryCardButton);
+    emptyLibraryCard.appendChild(emptyLibraryCardButtonDiv);
+    emptyLibraryCardText.textContent = 'Your library is empty! 😭';
+    cards.appendChild(emptyLibraryCard);
+
+    emptyLibraryCardButton.addEventListener('click', () => {
+        newBookModal.showModal();
+    })})
+
+
+newBookButton.addEventListener('click', () => {
+    newBookModal.showModal();
+})
