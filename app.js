@@ -128,3 +128,105 @@ function displayBook(array) {
         }}
 
         displayedBooks.push(book);
+
+
+        //Add event listeners to the switch, favorite and delete button
+        switchButton.addEventListener('click', () => {
+            if (read.textContent === 'Read') {
+                read.textContent = 'Not read';
+                book.read = 'Not read';
+                switchButton.textContent = 'toggle_off';
+                switchButton.style.color = '#323232';
+            } else if (read.textContent === 'Not read') {
+                read.textContent = 'Read';
+                book.read = 'Read';
+                switchButton.textContent = 'toggle_on';
+                switchButton.style.color = '#2BAE66';
+            }
+        })
+
+        favoriteButton.addEventListener('click', () => {
+        const children = favoriteBooksList.children;
+        let existsInFavorites = false;
+        const favoriteIndex = favoriteBooks.indexOf(book);
+        for (const child of children) {
+            if ((book.author === '' && child.textContent === `${book.title}`) || 
+            (book.author !== '' && child.textContent === `${book.title} by ${book.author}`)) {
+                existsInFavorites = true;
+                favoriteBooksList.removeChild(child);
+                favoriteButton.classList.remove('favorite-button-red');
+                book.favorite = 'No';
+                favoriteBooks.splice(favoriteIndex, 1);
+                break;
+            }
+        }
+        if (!existsInFavorites) {
+            const favoriteBook = document.createElement('p');
+            if (book.author === '') {
+                favoriteBook.textContent = `${book.title}`;
+            } else {
+                favoriteBook.textContent = `${book.title} by ${book.author}`;
+            }
+            favoriteBooksList.appendChild(favoriteBook);
+            favoriteButton.classList.add('favorite-button-red');
+            book.favorite = 'Yes';
+            favoriteBooks.push(book);
+            }
+        });
+
+        const index = myLibrary.indexOf(book);
+        deleteButton.addEventListener('click', function() {
+            if (cards.childElementCount > 1) {
+                cards.removeChild(newCard);
+                myLibrary.splice(index, 1);
+                displayedBooks.splice(index, 1);
+                if (favoriteBooksList.textContent.includes(book.title)) {
+                    const paragraphs = favoriteBooksCard.querySelectorAll('p');
+                    paragraphs.forEach((para) => {
+                        if (book.author === '' && para.textContent === `${book.title}`) {
+                                favoriteBooksList.removeChild(para);
+                                favoriteBooks.splice(favoriteIndex, 1);
+                        } else if (book.author !== '' && para.textContent === `${book.title} by ${book.author}`) {
+                            favoriteBooksList.removeChild(para);
+                            favoriteBooks.splice(favoriteIndex, 1);
+                        }
+                })
+            }
+            } else if (cards.childElementCount === 1) {
+                if (favoriteBooksList.textContent.includes(book.title)) {
+                    const paragraphs = favoriteBooksList.querySelectorAll('p');
+                    paragraphs.forEach((para) => {
+                        if (book.author === '' && para.textContent === `${book.title}`) {
+                                favoriteBooksList.removeChild(para);
+                        } else if (book.author !== '' && para.textContent === `${book.title} by ${book.author}`) {
+                            favoriteBooksList.removeChild(para);
+                        }
+                })
+            }
+                cards.removeChild(newCard);
+                myLibrary.pop();
+                displayedBooks.pop();
+                favoriteBooks.pop();
+
+                const emptyLibraryCard = document.createElement('div');
+                emptyLibraryCard.classList.add('empty-library-card');
+                const emptyLibraryCardText = document.createElement('p');
+                emptyLibraryCardText.classList.add('empty-library-card-text')
+                emptyLibraryCard.appendChild(emptyLibraryCardText);
+                const emptyLibraryCardButtonDiv = document.createElement('div');
+                emptyLibraryCardButtonDiv.classList.add('empty-library-card-button-div');
+                const emptyLibraryCardButton = document.createElement('span');
+                emptyLibraryCardButton.classList.add('new-book-button', 'material-symbols-outlined');
+                emptyLibraryCardButton.textContent = 'add';
+                emptyLibraryCardButtonDiv.appendChild(emptyLibraryCardButton);
+                emptyLibraryCard.appendChild(emptyLibraryCardButtonDiv);
+                emptyLibraryCardText.textContent = 'Your library is empty! 😭';
+                cards.appendChild(emptyLibraryCard);
+
+                emptyLibraryCardButton.addEventListener('click', () => {
+                    newBookModal.showModal();
+                })
+            }
+        })
+    }
+})}
