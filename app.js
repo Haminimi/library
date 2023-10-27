@@ -260,8 +260,43 @@ clearButton.addEventListener('click', () => {
     emptyLibraryCardButton.addEventListener('click', () => {
         newBookModal.showModal();
     })})
-
+    
 
 newBookButton.addEventListener('click', () => {
     newBookModal.showModal();
+})
+
+newBookModal.addEventListener('close', (e) => {
+    form.reset();
+})
+
+
+confirmButton.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    if (titleInput.value === '') {
+        newBookModal.close();
+
+    } else {
+        if (myLibrary.length === 0) {
+            if (cards) {
+                while (cards.firstChild) {
+                    cards.removeChild(cards.firstChild);
+                }
+            }
+            const newBook = new Book(titleInput.value, authorInput.value, yearInput.value, readInput.value, favoriteInput.value);
+            addBookToLibrary(newBook);
+            console.log(favoriteInput.value)
+            displayBook(myLibrary);
+            newBookModal.close();
+        } else {
+            console.log(favoriteInput.value);
+            const newBook = new Book(titleInput.value, authorInput.value, yearInput.value, readInput.value, favoriteInput.value);
+            console.log(favoriteInput.value);
+            addBookToLibrary(newBook);
+            console.log(favoriteInput.value);
+            displayBook(myLibrary);
+            newBookModal.close();
+        }
+    }
 })
