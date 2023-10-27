@@ -260,7 +260,7 @@ clearButton.addEventListener('click', () => {
     emptyLibraryCardButton.addEventListener('click', () => {
         newBookModal.showModal();
     })})
-    
+
 
 newBookButton.addEventListener('click', () => {
     newBookModal.showModal();
@@ -300,3 +300,21 @@ confirmButton.addEventListener('click', (event) => {
         }
     }
 })
+
+
+/* newBookModal.addEventListener("click", e => {
+    const dialogDimensions = newBookModal.getBoundingClientRect()
+    if (
+      e.clientX < dialogDimensions.left ||
+      e.clientX > dialogDimensions.right ||
+      e.clientY < dialogDimensions.top ||
+      e.clientY > dialogDimensions.bottom
+    ) {
+        newBookModal.close()
+    }
+  }) */
+
+
+  window.addEventListener("load", (event) => {
+    displayBook(myLibrary);
+  });
