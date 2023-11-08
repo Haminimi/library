@@ -16,13 +16,16 @@ const form = document.querySelector('form');
 const clearButton = document.querySelector('#clear-all');
 
 
-function Book(title, author, year, read, favorite) {
-    this.title = title;
-    this.author = author;
-    this.year = year;
-    this.read = read;
-    this.favorite = favorite;
+class Book {
+    constructor(title, author, year, read, favorite) {
+        this.title = title;
+        this.author = author;
+        this.year = year;
+        this.read = read;
+        this.favorite = favorite;
+    }
 }
+
 const theHobbit = new Book('The Hobbit 🧙‍♂️', 'J.R.R. Tolkien', 1937, 'Read', 'Yes')
 const theLOTR = new Book('The Lord of the Rings', 'J.R.R. Tolkien', 1954, 'Not read', 'No')
 
