@@ -14,6 +14,7 @@ const favoriteInput = document.querySelector('#favorite');
 const confirmButton = document.querySelector('#confirm-button');
 const form = document.querySelector('form');
 const clearButton = document.querySelector('#clear-all');
+const cancelButton = document.getElementById('cancel-button');
 
 class Book {
 	constructor(title, author, year, read, favorite) {
@@ -378,6 +379,10 @@ confirmButton.addEventListener('click', (event) => {
 			newBookModal.close();
 		}
 	}
+});
+
+cancelButton.addEventListener('click', () => {
+	newBookModal.close();
 });
 
 /* newBookModal.addEventListener('click', (e) => {
