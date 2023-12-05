@@ -1,7 +1,7 @@
 # Library 📖
 ## Description
-This Library project is a part of [The Odin Project](https://www.theodinproject.com/dashboard)'s [curriculum](https://www.theodinproject.com/lessons/node-path-javascript-library). The Odin Project provides a high quality web development education maintained by an open source community.
-## Live Demo
+The Library app allows you to add your favorite books with all the basic information, switch the read or favorite status, delete books and clear your library at once using the clear button. This [Library project](https://www.theodinproject.com/lessons/node-path-javascript-library) is a part of [The Odin Project](https://www.theodinproject.com/dashboard)'s curriculum. The Odin Project provides a high quality web development education maintained by an open source community.
+## Live Preview
 The [Library app](https://haminimi.github.io/library/) built by [me](https://github.com/Haminimi).
 ## Main Features
 - **Switch Read Status:** The switch button enables the changing of a book's read status and provides an engaging and responsive effect.
@@ -22,13 +22,19 @@ The [Library app](https://haminimi.github.io/library/) built by [me](https://git
 - HTML
 - Vanilla JavaScript
 - Vanilla CSS
+
+**Tools**
+- Git
+- Visual Studio Code
 ## Covered Topics
 **This section mentions the main topics covered during project work and prior lessons**
 - Objects
 - Function Constructors
 - Classes
 - DOM Manipulation
+- Modal and Dialog Elements
 - Git Branching
+- Animations
 ## Reflection
 The code should probably be more organized, and I intend to work on it in the future, refactoring the current spaghetti code into a more organized and well-structured pattern. In particular, the main displayBook function appears a bit messy at the moment. Nevertheless, I am currently satisfied with the functionality and the overall project's outcome. I am excited to see the new [selectmenu](https://open-ui.org/) element in action and to see some other changes that will give us more control over the appearance of certain web elements, especially forms and related components.
 ## Credits
@@ -40,3 +46,4 @@ The code should probably be more organized, and I intend to work on it in the fu
 - [LeetCode](https://leetcode.com/Haminimi/)
 - Email: haminimi.dev@gmail.com
 - LinkedIn: A profile will be available at the time I am job ready
+## Happy Coding!
