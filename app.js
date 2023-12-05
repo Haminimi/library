@@ -372,7 +372,7 @@ confirmButton.addEventListener('click', (event) => {
 	}
 });
 
-newBookModal.addEventListener('click', (e) => {
+/* newBookModal.addEventListener('click', (e) => {
 	const dialogDimensions = newBookModal.getBoundingClientRect();
 	if (
 		e.clientX + 100 < dialogDimensions.left ||
@@ -382,7 +382,7 @@ newBookModal.addEventListener('click', (e) => {
 	) {
 		newBookModal.close();
 	}
-});
+}); */
 
 window.addEventListener('load', (event) => {
 	displayBook(myLibrary);
