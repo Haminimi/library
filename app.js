@@ -338,8 +338,16 @@ newBookModal.addEventListener('close', (e) => {
 confirmButton.addEventListener('click', (event) => {
 	event.preventDefault();
 
-	if (titleInput.value === '') {
-		newBookModal.close();
+	//Custom validity for the required title field
+	if (titleInput.validity.valueMissing) {
+		titleInput.reportValidity();
+		titleInput.setCustomValidity(
+			'Oh no! This field is as essential as sprinkles on a cupcake! Please fill it in. 🧁'
+		);
+
+		titleInput.addEventListener('input', (event) => {
+			titleInput.setCustomValidity('');
+		});
 	} else {
 		if (myLibrary.length === 0) {
 			if (cards) {
