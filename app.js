@@ -212,7 +212,12 @@ function displayBook(array) {
 			const index = myLibrary.indexOf(book);
 			deleteButton.addEventListener('click', function () {
 				if (cards.childElementCount > 1) {
-					cards.removeChild(newCard);
+					newCard.classList.add('disappear');
+					setTimeout(() => {
+						newCard.classList.remove('disappear');
+						cards.removeChild(newCard);
+					}, 480);
+
 					myLibrary.splice(index, 1);
 					displayedBooks.splice(index, 1);
 					if (favoriteBooksList.textContent.includes(book.title)) {
@@ -254,7 +259,12 @@ function displayBook(array) {
 							}
 						});
 					}
-					cards.removeChild(newCard);
+					newCard.classList.add('disappear');
+					setTimeout(() => {
+						newCard.classList.remove('disappear');
+						cards.removeChild(newCard);
+					}, 480);
+
 					myLibrary.pop();
 					displayedBooks.pop();
 					favoriteBooks.pop();
@@ -284,7 +294,11 @@ function displayBook(array) {
 					emptyLibraryCard.appendChild(emptyLibraryCardButtonDiv);
 					emptyLibraryCardText.textContent =
 						'Your library is empty! 😭';
-					cards.appendChild(emptyLibraryCard);
+
+					setTimeout(() => {
+						emptyLibraryCard.classList.add('appear');
+						cards.appendChild(emptyLibraryCard);
+					}, 505);
 
 					emptyLibraryCardButton.addEventListener('click', () => {
 						newBookModal.showModal();
@@ -322,6 +336,7 @@ clearButton.addEventListener('click', () => {
 	emptyLibraryCard.appendChild(emptyLibraryCardButtonDiv);
 	emptyLibraryCardText.textContent = 'Your library is empty! 😭';
 	cards.appendChild(emptyLibraryCard);
+	emptyLibraryCard.classList.add('appear');
 
 	emptyLibraryCardButton.addEventListener('click', () => {
 		newBookModal.showModal();
@@ -341,13 +356,14 @@ confirmButton.addEventListener('click', (event) => {
 
 	//Custom validity for the required title field
 	if (titleInput.validity.valueMissing) {
-		titleInput.reportValidity();
 		titleInput.setCustomValidity(
 			'Oh no! This field is as essential as sprinkles on a cupcake! Please fill it in. 🧁'
 		);
+		titleInput.reportValidity();
 
 		titleInput.addEventListener('input', (event) => {
 			titleInput.setCustomValidity('');
+			reportValidity();
 		});
 	} else {
 		if (myLibrary.length === 0) {
@@ -365,7 +381,12 @@ confirmButton.addEventListener('click', (event) => {
 			);
 			addBookToLibrary(newBook);
 			displayBook(myLibrary);
-			newBookModal.close();
+
+			newBookModal.classList.add('close');
+			setTimeout(() => {
+				newBookModal.classList.remove('close');
+				newBookModal.close();
+			}, 350);
 		} else {
 			const newBook = new Book(
 				titleInput.value,
@@ -376,13 +397,23 @@ confirmButton.addEventListener('click', (event) => {
 			);
 			addBookToLibrary(newBook);
 			displayBook(myLibrary);
-			newBookModal.close();
+
+			newBookModal.classList.add('close');
+			setTimeout(() => {
+				newBookModal.classList.remove('close');
+				newBookModal.close();
+			}, 350);
 		}
 	}
 });
 
 cancelButton.addEventListener('click', () => {
-	newBookModal.close();
+	titleInput.setCustomValidity(' ');
+	newBookModal.classList.add('close');
+	setTimeout(() => {
+		newBookModal.classList.remove('close');
+		newBookModal.close();
+	}, 350);
 });
 
 /* newBookModal.addEventListener('click', (e) => {
