@@ -1,8 +1,9 @@
 # Library 📖
+![Screenshot of the Library.](/screenshot.png)
 ## Description
 The Library app allows you to add your favorite books with all the basic information, switch the read or favorite status, delete books and clear your library at once using the clear button. This [Library project](https://www.theodinproject.com/lessons/node-path-javascript-library) is a part of [The Odin Project](https://www.theodinproject.com/dashboard)'s curriculum. The Odin Project provides a high quality web development education maintained by an open source community.
 ## Live Preview
-The [Library app](https://haminimi.github.io/library/) built by [me](https://github.com/Haminimi).
+The [Library app](https://haminimi.github.io/library/).
 ## Main Features
 - **Switch Read Status:** The switch button enables the changing of a book's read status and provides an engaging and responsive effect.
 - **Favorite Books and Favorite Button:** An user is able to add books to the list of favorite books by using the favorite button on a book card or by adding a book to the favorites while adding a new book through the modal.
@@ -24,8 +25,8 @@ The [Library app](https://haminimi.github.io/library/) built by [me](https://git
 - Vanilla CSS
 
 **Tools**
-- Git
 - Visual Studio Code
+- Git
 ## Covered Topics
 **This section mentions the main topics covered during project work and prior lessons**
 - Objects
@@ -45,5 +46,4 @@ The code should probably be more organized, and I intend to work on it in the fu
 - [Exercism](https://exercism.org/profiles/Haminimi)
 - [LeetCode](https://leetcode.com/Haminimi/)
 - Email: haminimi.dev@gmail.com
-- LinkedIn: A profile will be available at the time I am job ready
 ## Happy Coding!
